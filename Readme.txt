@@ -6,7 +6,7 @@ Database Configuration
 
 Open phpmyadmin
 Create Database carrental
-Import database carrental.sql (available SQL File Folder inside zip package)
+Import database carrental.sql (available SQL File Folder inside  package)
 
 For User
 Open Your browser put inside browser “http://localhost/carrental”
