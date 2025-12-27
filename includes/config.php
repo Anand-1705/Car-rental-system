@@ -1,16 +1,17 @@
-<?php 
-// DB credentials.
-define('DB_HOST','localhost');
-define('DB_USER','root');
-define('DB_PASS','');
-define('DB_NAME','carrental');
-// Establish database connection.
-try
-{
-$dbh = new PDO("mysql:host=".DB_HOST.";dbname=".DB_NAME,DB_USER, DB_PASS,array(PDO::MYSQL_ATTR_INIT_COMMAND => "SET NAMES 'utf8'"));
-}
-catch (PDOException $e)
-{
-exit("Error: " . $e->getMessage());
+<?php
+$host = "db";                  // Docker MySQL service name
+$user = "carrental_user";      // Must match docker-compose.yml
+$password = "carrental_pass";  // Must match docker-compose.yml
+$dbname = "carrental";
+
+try {
+    $dbh = new PDO(
+        "mysql:host=$host;dbname=$dbname;charset=utf8",
+        $user,
+        $password,
+        array(PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION)
+    );
+} catch (PDOException $e) {
+    exit("Database connection failed: " . $e->getMessage());
 }
 ?>
